@@ -1,0 +1,26 @@
+<?php
+/**
+ * @file
+ * Code for the Emergencies feature.
+ */
+
+include_once 'hr_emergencies.features.inc';
+
+/**
+ * Implements hook_og_features_registry()
+ */
+function hr_emergencies_og_features_registry() {
+  $registry = array();
+  $feature = new stdClass();
+  $feature->id = 'hr_emergencies';
+  $feature->name = t('Emergencies');
+  $feature->description = t('Activate if your operation has multiple emergencies.');
+  $feature->components = array(
+    'node' => array(
+      'hr_emergency',
+    ),
+  );
+  $registry[$feature->id] = $feature;
+  return $registry;
+}
+
